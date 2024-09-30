@@ -1,0 +1,118 @@
+/* --bs-light-rgb: 245, 247, 249*/
+/* rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important */
+
+.react-background-image {
+  background-image: linear-gradient(to right, #149eca, #75d9f7);
+}
+
+.angulargradient {
+  background-image: linear-gradient(to right, #ff31d8, #f4064b, #9418f0);
+}
+
+.reactgradient {
+  background-image: linear-gradient(to right, #149eca, #75d9f7);
+}
+
+.javascriptgradient {
+  background-image: linear-gradient(to right, #d7be02, #27230d);
+}
+
+.merngradient {
+  background-image: linear-gradient(to right, #149eca, green);
+}
+
+.meangradient {
+  background-image: linear-gradient(to right, #ff31d8, green);
+}
+
+.javagradient {
+  background-image: linear-gradient(to right, #f1931c, #507d9b);
+}
+
+.pythongradient {
+  background-image: linear-gradient(to right, #f7ca3f, #356c9b);
+}
+
+.devopsgradient {
+  background-image: linear-gradient(to right, #7f7f7d, #356c9b);
+}
+
+.awsgradient {
+  background-image: linear-gradient(to right, #f79400, #000000);
+}
+
+.courses-list {
+  width: 100%;
+  height: 875px;
+  background-color: #f5f7f9;
+  padding: 35px 0;
+}
+
+.courses-list .grid {
+  gap: 60px;
+}
+
+.card-1 {
+  background-color: #fff;
+  height: 290px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.card-1 .img-content {
+  height: 118px;
+  /* border: 1px solid; */
+  border-radius: 7px 7px 0 0;
+}
+
+.text-content {
+  text-align: center;
+  padding: 10px;
+}
+
+.rating {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.rating i {
+  color: #000000;
+  font-weight: 500;
+}
+
+.stars ul {
+  display: flex;
+}
+
+.stars ul li i {
+  font-weight: 800;
+  color: rgb(247, 195, 46);
+}
+
+.btn-details {
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #087ae6;
+  color: #087ae6;
+  font-weight: 500;
+  border-radius: 5px;
+  margin-top: 15px;
+  background-color: transparent;
+}
+
+.img-content {
+  color: #fff;
+  text-align: center;
+  align-content: center;
+}
+
+.img-content i {
+  font-size: 50px;
+}
+
+.img-content h3 {
+  font-size: 30px;
+}

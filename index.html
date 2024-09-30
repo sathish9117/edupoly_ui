@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edupoly</title>
+    <link rel="icon" type="image/svg" href="/assets/fav-ico.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        :root {
+            --bs-light-rgb: rgba(245, 247, 249);
+
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+        }
+
+        .container {
+            width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .header {
+            height: 96px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar {
+            width: 80%;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 2px;
+        }
+
+        .navbar ul {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+        }
+
+        .navbar ul li a {
+            font-size: 15px;
+            font-weight: 500;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        li a:hover {
+            color: #066AC9;
+        }
+
+        .btn-a {
+            font-weight: 400;
+            color: #fff;
+            padding: 15px 15px;
+            border-radius: 5px;
+            background-color: #0cbc87;
+        }
+
+        .btn-a:hover {
+            background-color: #0a966c;
+        }
+
+        .toggle-btn {
+            border: none;
+            padding: 7px 12px;
+            border-radius: 5px;
+            margin-left: -5px;
+            cursor: pointer;
+        }
+
+        .toggle-btn:hover {
+            background-color: rgba(186, 182, 182, 0.492);
+        }
+    </style>
+    <style>
+        .head-t {
+            display: flex;
+            width: 100%;
+            height: 430px;
+            justify-content: space-evenly;
+            align-items: center;
+            /* border: 1px solid red; */
+        }
+
+        .head-l-text {
+            width: 50%;
+            height: 100%;
+            /* border: 1px solid rebeccapurple; */
+        }
+
+        .head-l-text h1 {
+            font-size: 4rem;
+            color: #045199;
+            margin: 10px 0 15px 0;
+        }
+
+        .head-l-text p {
+            padding: 10px 0;
+            font-size: 20px;
+        }
+
+        .head-l-text a {
+            border-radius: 5px;
+            padding: 10px 17px;
+            background-color: #066AC9;
+            color: #fff;
+            border: 1px solid #066AC9;
+        }
+
+        .head-l-text a:hover {
+            background-color: #045199;
+        }
+
+        .head-r-img {
+            width: 50%;
+        }
+
+        .head-r-img img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <style>
+        .head-b {
+            /* border: 1px solid; */
+            height: 130px;
+            padding: 0px 35px;
+            padding-bottom: 15px;
+
+        }
+
+        .head-b h1 {
+            margin: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grid .card:nth-child(1) {
+            color: rgb(12, 188, 135);
+        }
+
+        /* 214, 41, 62 */
+        .grid .card:nth-child(2) {
+            color: rgb(214, 41, 62);
+        }
+
+        /* #17a2b8 */
+        .grid .card:nth-child(3) {
+            color: #17a2b8;
+        }
+
+        /* 066AC9 */
+        .grid .card:nth-child(4) {
+            color: #066AC9;
+        }
+
+
+        .card {
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 15px;
+            padding: 0 0 0 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-text {
+            /* border: 1px solid; */
+            height: 100%;
+            align-content: center;
+            margin-left: 12px;
+            margin-right: 12px;
+        }
+
+        .card-text p {
+            margin: 6px 0;
+        }
+
+        .card i {
+            margin-right: 10px;
+        }
+    </style>
+    <style>
+        /* --bs-light-rgb: 245, 247, 249*/
+        /* rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important */
+
+        .react-background-image {
+            background-image: linear-gradient(to right, #149eca, #75d9f7);
+        }
+
+        .angulargradient {
+            background-image: linear-gradient(to right, #ff31d8, #f4064b, #9418f0);
+        }
+
+        .reactgradient {
+            background-image: linear-gradient(to right, #149eca, #75d9f7);
+        }
+
+        .javascriptgradient {
+            background-image: linear-gradient(to right, #d7be02, #27230d);
+        }
+
+        .merngradient {
+            background-image: linear-gradient(to right, #149eca, green);
+        }
+
+        .meangradient {
+            background-image: linear-gradient(to right, #ff31d8, green);
+        }
+
+        .javagradient {
+            background-image: linear-gradient(to right, #f1931c, #507d9b);
+        }
+
+        .pythongradient {
+            background-image: linear-gradient(to right, #f7ca3f, #356c9b);
+        }
+
+        .devopsgradient {
+            background-image: linear-gradient(to right, #7f7f7d, #356c9b);
+        }
+
+        .awsgradient {
+            background-image: linear-gradient(to right, #f79400, #000000);
+        }
+
+
+        .courses-list {
+            width: 100%;
+            height: 875px;
+            background-color: #f5f7f9;
+            padding: 35px 0;
+        }
+
+        .courses-list .grid {
+            gap: 60px;
+        }
+
+        .card-1 {
+            background-color: #fff;
+            height: 290px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .card-1 .img-content {
+            height: 118px;
+            /* border: 1px solid; */
+            border-radius: 7px 7px 0 0;
+        }
+
+        .text-content {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .rating {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+
+        .rating i {
+            color: #000000;
+            font-weight: 500;
+        }
+
+        .stars ul {
+            display: flex;
+        }
+
+        .stars ul li i {
+            font-weight: 800;
+            color: rgb(247, 195, 46);
+        }
+
+        .btn-details {
+            width: 100%;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid #087ae6;
+            color: #087ae6;
+            font-weight: 500;
+            border-radius: 5px;
+            margin-top: 15px;
+            background-color: transparent;
+
+        }
+
+        .img-content {
+            color: #fff;
+            text-align: center;
+            align-content: center;
+        }
+
+        .img-content i {
+            font-size: 50px;
+        }
+
+        .img-content h3 {
+            font-size: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <div class="container header">
+            <a href="https://edupoly.in/" target="_blank">
+                <img width="140px" src="/assets/logo.svg" alt="">
+            </a>
+            <nav class="navbar">
+                <ul>
+                    <li>
+                        <a href="">
+                            Courses
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Practice
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Notes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Trainings
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="btn-a ">
+                            Register
+                        </a>
+                    </li>
+                    <li>
+                        <button class="toggle-btn"><i class="fa-solid fa-circle-half-stroke"></i></button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!-- head section -->
+        <section class="container head-sec">
+            <div class="head-t">
+                <div class="head-l-text">
+                    <h1>Best Training for Practical Interactive Learning</h1>
+                    <p>Advance your career by Create Application along with Industry Experts. We simplify Complex
+                        Problems
+                        into Small Steps to build make you to develop yourself.</p>
+                    <a href="">Register</a>
+                </div>
+                <div class="head-r-img">
+                    <img src="/assets/full-stack-training-hyderabad.png" alt="">
+                </div>
+            </div>
+            <div class="head-b grid">
+                <div class="card">
+                    <i class="fa-solid fa-user-graduate fa-3x"></i>
+                    <div class="card-text">
+                        <b>Industry Gurus</b>
+                        <p>17+ years Experienced Corporate Trainers</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-tv fa-3x"></i>
+                    <div class="card-text">
+                        <b>Project Orientation</b>
+                        <p>10+ Industry Ready Projects & 100+ Assingments</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-video fa-3x"></i>
+                    <div class="card-text">
+                        <b>Live Classes</b>
+                        <p>100+ Hours Live Sessions with Realtime Examples</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-clipboard-check fa-3x"></i>
+                    <div class="card-text">
+                        <b>Practice Sessions</b>
+                        <p>Min 6hrs of Daily Expert Mentorship</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Courses list -->
+        <section class="courses-list">
+            <div class="container grid">
+                <div class="card-1">
+                    <div class="img-content reactgradient">
+                        <i class="fa-brands fa-react"></i>
+                        <h3>ReactJS</h3>
+                    </div>
+                    <div class="text-content">
+                        <b>ReactJS Application Development with Industry Best Practices</b>
+                        <div class="rating">
+                            <p><i class="fa-regular fa-clock"></i> 1000Hrs</p>
+                            <div class="stars">
+                                <ul>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li>(3988)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn-details">Details</button>
+                    </div>
+                </div>
+                <div class="card-1">
+                    <div class="img-content merngradient">
+                        <i class="fa-brands fa-react"></i>
+                        <i class="fa-brands fa-node-js"></i>
+                        <h3>M E R N</h3>
+                    </div>
+                    <div class="text-content">
+                        <b>Full Stack with NodeJS Express MongoDB ReactJS</b>
+                        <div class="rating">
+                            <p><i class="fa-regular fa-clock"></i> 1000Hrs</p>
+                            <div class="stars">
+                                <ul>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li>(3988)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn-details">Details</button>
+                    </div>
+                </div>
+                <div class="card-1">
+                    <div class="img-content angulargradient">
+                        <i class="fa-brands fa-angular"></i>
+                        <h3>Angular</h3>
+                    </div>
+                    <div class="text-content">
+                        <b>Angular Application Development with Realtime Projects</b>
+                        <div class="rating">
+                            <p><i class="fa-regular fa-clock"></i> 1000Hrs</p>
+                            <div class="stars">
+                                <ul>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li>(3988)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn-details">Details</button>
+                    </div>
+                </div>
+                <div class="card-1">
+                    <div class="img-content meangradient">
+                        <i class="fa-brands fa-angular"></i>
+                        <i class="fa-brands fa-node-js"></i>
+
+                        <h3>M E A N</h3>
+                    </div>
+                    <div class="text-content">
+                        <b>Full Stack with NodeJS Express MongoDB Angular</b>
+                        <div class="rating">
+                            <p><i class="fa-regular fa-clock"></i> 1000Hrs</p>
+                            <div class="stars">
+                                <ul>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li>(3988)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn-details">Details</button>
+                    </div>
+                </div>
+                <div class="card-1">
+                    <div class="img-content javagradient">
+                        <i class="fa-brands fa-java"></i>
+                        <h3>Java</h3>
+                    </div>
+                    <div class="text-content">
+                        <b>Object Oriented Application Development Beginner to Pro</b>
+                        <div class="rating">
+                            <p><i class="fa-regular fa-clock"></i> 1000Hrs</p>
+                            <div class="stars">
+                                <ul>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li>(2582)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn-details">Details</button>
+                    </div>
+                </div>
+                <div class="card-1">
+                    <div class="img-content pythongradient">
+                        <i class="fa-brands fa-python"></i>
+                        <h3>Python</h3>
+                    </div>
+                    <div class="text-content">
+                        <b>Become Pro from basics to Datastructure with Projects</b>
+                        <div class="rating">
+                            <p><i class="fa-regular fa-clock"></i> 1000Hrs</p>
+                            <div class="stars">
+                                <ul>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li>(2582)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn-details">Details</button>
+                    </div>
+                </div>
+                <div class="card-1">
+                    <div class="img-content awsgradient">
+                        <i class="fa-brands fa-aws"></i>
+                        <i class="fa-solid fa-infinity"></i>
+                        <h3>AWS & Devops</h3>
+                    </div>
+                    <div class="text-content">
+                        <b>Become Industry Ready Cloud Engineer</b>
+                        <div class="rating">
+                            <p><i class="fa-regular fa-clock"></i> 1000Hrs</p>
+                            <div class="stars">
+                                <ul>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li>(2582)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn-details">Details</button>
+                    </div>
+                </div>
+                <div class="card-1">
+                    <div class="img-content javascriptgradient">
+                        <i class="fa-brands fa-js"></i>
+                        <h3>Javascript & UI</h3>
+                    </div>
+                    <div class="text-content">
+                        <b>Complete Javascript with HTML CSS Bootstap and Logic Building</b>
+                        <div class="rating">
+                            <p><i class="fa-regular fa-clock"></i> 1000Hrs</p>
+                            <div class="stars">
+                                <ul>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li>(2582)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn-details">Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
